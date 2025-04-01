@@ -14,7 +14,7 @@ docker-compose up -d
 
 docker-compose exec -it php composer create-project october/october myoctober
 
-docker-compose exec -it php rsync -av --exclude='.git' --exclude='README.md' myoctober/ .
+docker-compose exec -it php rsync -av --exclude='.git' --exclude='README.md' myoctober/* ./
 
 docker-compose --env-file docker/.env -f docker/docker-compose.yml exec -it php sed -i '$a\COMPOSE_FILE=docker/docker-compose.yml' .env
 
@@ -25,6 +25,8 @@ docker-compose exec -it php sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=b3ede22a26bd6e2
 
 docker-compose exec -it php sed -i '$a\APP_URL=http://localhost' .env
 
-docker-compose exec -it php php artisan october:install --no-interaction
+docker-compose exec -it php php artisan october:install
 
 docker-compose exec -it php php artisan october:migrate
+
+docker-compose exec -it php chmod -R 777 *
