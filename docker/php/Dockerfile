@@ -1,18 +1,20 @@
 FROM php:8.3-fpm
 
-RUN apt-get update
-RUN apt-get install git -y
-RUN apt-get install curl -y
-RUN apt-get install libpng-dev -y
-RUN apt-get install libonig-dev -y
-RUN apt-get install libxml2-dev -y
-RUN apt-get install zip -y
-RUN apt-get install unzip -y
-RUN apt-get install libcurl4-openssl-dev -y
-RUN apt-get install libssl-dev -y
-RUN apt-get install libzip-dev -y
-RUN apt-get install mc -y
-RUN apt-get install rsync -y
+RUN apt-get update && \
+    apt-get install -y \
+        curl \
+        libpng-dev \
+        libonig-dev \
+        libxml2-dev \
+        zip \
+        unzip \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        libzip-dev \
+        mc \
+        rsync \
+        git && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mbstring
