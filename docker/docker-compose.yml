@@ -1,0 +1,45 @@
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - ${NGINX_HOST_PORT}:80
+    volumes:
+      - ./../:/app
+      - ./nginx/config/:/etc/nginx/conf.d
+      - ./nginx/logs/:/var/log/nginx
+    networks:
+      - october-network
+    restart: always
+
+  php:
+    build:
+      context: './'
+      dockerfile: './php/Dockerfile'
+    networks:
+      - october-network
+    volumes:
+      - "../:/app"
+    restart: always
+
+  mysql:
+    image: mysql:latest
+    volumes:
+      - ./mysql/initdb:/docker-entrypoint-initdb.d
+      - october-mysql-volume:/var/lib/mysql
+    networks:
+      - october-network
+    environment:
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+    restart: always
+    ports:
+      - ${MYSQL_HOST_PORT}:3306
+
+volumes:
+  october-mysql-volume:
+
+networks:
+  october-network:
+    external: true
