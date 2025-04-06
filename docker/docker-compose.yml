@@ -42,7 +42,14 @@ volumes:
 
 networks:
   october-network:
+    enable_ipv6: false
     external: true
     driver: bridge
     driver_opts:
-      com.docker.network.driver.mtu: 1450
+      com.docker.network.driver.mtu: 1280
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+          gateway: 172.28.0.1
+          aux_addresses:
+            dns: 8.8.8.8

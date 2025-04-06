@@ -1,93 +1,9 @@
 #!/bin/sh
-set -e
-# Docker Engine for Linux installation script.
-#
-# This script is intended as a convenient way to configure docker's package
-# repositories and to install Docker Engine, This script is not recommended
-# for production environments. Before running this script, make yourself familiar
-# with potential risks and limitations, and refer to the installation manual
-# at https://docs.docker.com/engine/install/ for alternative installation methods.
-#
-# The script:
-#
-# - Requires `root` or `sudo` privileges to run.
-# - Attempts to detect your Linux distribution and version and configure your
-#   package management system for you.
-# - Doesn't allow you to customize most installation parameters.
-# - Installs dependencies and recommendations without asking for confirmation.
-# - Installs the latest stable release (by default) of Docker CLI, Docker Engine,
-#   Docker Buildx, Docker Compose, containerd, and runc. When using this script
-#   to provision a machine, this may result in unexpected major version upgrades
-#   of these packages. Always test upgrades in a test environment before
-#   deploying to your production systems.
-# - Isn't designed to upgrade an existing Docker installation. When using the
-#   script to update an existing installation, dependencies may not be updated
-#   to the expected version, resulting in outdated versions.
-#
-# Source code is available at https://github.com/docker/docker-install/
-#
-# Usage
-# ==============================================================================
-#
-# To install the latest stable versions of Docker CLI, Docker Engine, and their
-# dependencies:
-#
-# 1. download the script
-#
-#   $ curl -fsSL https://get.docker.com -o install-docker.sh
-#
-# 2. verify the script's content
-#
-#   $ cat install-docker.sh
-#
-# 3. run the script with --dry-run to verify the steps it executes
-#
-#   $ sh install-docker.sh --dry-run
-#
-# 4. run the script either as root, or using sudo to perform the installation.
-#
-#   $ sudo sh install-docker.sh
-#
-# Command-line options
-# ==============================================================================
-#
-# --version <VERSION>
-# Use the --version option to install a specific version, for example:
-#
-#   $ sudo sh install-docker.sh --version 23.0
-#
-# --channel <stable|test>
-#
-# Use the --channel option to install from an alternative installation channel.
-# The following example installs the latest versions from the "test" channel,
-# which includes pre-releases (alpha, beta, rc):
-#
-#   $ sudo sh install-docker.sh --channel test
-#
-# Alternatively, use the script at https://test.docker.com, which uses the test
-# channel as default.
-#
-# --mirror <Aliyun|AzureChinaCloud>
-#
-# Use the --mirror option to install from a mirror supported by this script.
-# Available mirrors are "Aliyun" (https://mirrors.aliyun.com/docker-ce), and
-# "AzureChinaCloud" (https://mirror.azure.cn/docker-ce), for example:
-#
-#   $ sudo sh install-docker.sh --mirror AzureChinaCloud
-#
-# ==============================================================================
 
-
-# Git commit from https://github.com/docker/docker-install when
-# the script was uploaded (Should only be modified by upload job):
 SCRIPT_COMMIT_SHA="4c94a56999e10efcf48c5b8e3f6afea464f9108e"
 
-# strip "v" prefix if present
 VERSION="${VERSION#v}"
 
-# The channel to install from:
-#   * stable
-#   * test
 DEFAULT_CHANNEL_VALUE="stable"
 if [ -z "$CHANNEL" ]; then
 	CHANNEL=$DEFAULT_CHANNEL_VALUE
@@ -157,18 +73,6 @@ command_exists() {
 	command -v "$@" > /dev/null 2>&1
 }
 
-# version_gte checks if the version specified in $VERSION is at least the given
-# SemVer (Maj.Minor[.Patch]), or CalVer (YY.MM) version.It returns 0 (success)
-# if $VERSION is either unset (=latest) or newer or equal than the specified
-# version, or returns 1 (fail) otherwise.
-#
-# examples:
-#
-# VERSION=23.0
-# version_gte 23.0  // 0 (success)
-# version_gte 20.10 // 0 (success)
-# version_gte 19.03 // 0 (success)
-# version_gte 26.1  // 1 (fail)
 version_gte() {
 	if [ -z "$VERSION" ]; then
 			return 0
@@ -176,18 +80,6 @@ version_gte() {
 	version_compare "$VERSION" "$1"
 }
 
-# version_compare compares two version strings (either SemVer (Major.Minor.Path),
-# or CalVer (YY.MM) version strings. It returns 0 (success) if version A is newer
-# or equal than version B, or 1 (fail) otherwise. Patch releases and pre-release
-# (-alpha/-beta) are not taken into account
-#
-# examples:
-#
-# version_compare 23.0.0 20.10 // 0 (success)
-# version_compare 23.0 20.10   // 0 (success)
-# version_compare 20.10 19.03  // 0 (success)
-# version_compare 20.10 20.10  // 0 (success)
-# version_compare 19.03 20.10  // 1 (fail)
 version_compare() (
 	set +x
 
@@ -202,7 +94,6 @@ version_compare() (
 	mm_a="$(echo "$1" | cut -d'.' -f2)"
 	mm_b="$(echo "$2" | cut -d'.' -f2)"
 
-	# trim leading zeros to accommodate CalVer
 	mm_a="${mm_a#0}"
 	mm_b="${mm_b#0}"
 
@@ -298,7 +189,6 @@ echo_docker_as_nonroot() {
 	echo
 }
 
-# Check if this is a forked Linux distro
 check_forked() {
 
 	# Check for lsb_release command existence, it usually exists in forked distros
@@ -307,7 +197,6 @@ check_forked() {
 		set +e
 		lsb_release -a -u > /dev/null 2>&1
 		lsb_release_exit_code=$?
-		set -e
 
 		# Check if the command has exited successfully, it means we're in a forked distro
 		if [ "$lsb_release_exit_code" = "0" ]; then
@@ -551,7 +440,6 @@ do_install() {
 				$sh_c "DEBIAN_FRONTEND=noninteractive apt-get -y -qq install $pkgs >/dev/null"
 			)
 			echo_docker_as_nonroot
-			exit 0
 			;;
 		centos|fedora|rhel)
 			repo_file_url="$DOWNLOAD_URL/linux/$lsb_dist/$REPO_FILE"
@@ -649,7 +537,6 @@ do_install() {
 				$sh_c "$pkg_manager $pkg_manager_flags install $pkgs"
 			)
 			echo_docker_as_nonroot
-			exit 0
 			;;
 		sles)
 			if [ "$(uname -m)" != "s390x" ]; then
@@ -727,7 +614,6 @@ do_install() {
 				$sh_c "zypper -q install -y $pkgs"
 			)
 			echo_docker_as_nonroot
-			exit 0
 			;;
 		*)
 			if [ -z "$lsb_dist" ]; then
@@ -745,15 +631,36 @@ do_install() {
 			exit 1
 			;;
 	esac
-	exit 1
 }
 
 # wrapped up in a function so that we have some protection against only getting
 # half the file during "curl | sh"
 do_install
 
+COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
 
-atp update && apt install git -y
+# Скачиваем и устанавливаем
+sudo curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" \
+    -o /usr/local/bin/docker-compose
+
+# Даем права на выполнение
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Проверяем установку
+docker-compose --version
+
+if [ -f /lib/systemd/system/docker.service ]; then
+    sed -i 's|ExecStart=/usr/bin/dockerd -H fd://|ExecStart=/usr/bin/dockerd --mtu 1280 -H fd://|g' /lib/systemd/system/docker.service
+else
+    echo "Файл /lib/systemd/system/docker.service не найден. Пропускаем замену."
+fi
+
+systemctl daemon-reload
+systemctl restart docker
+
+apt update && apt install git -y
+
+rm -rf october_infrastructure
 
 git clone https://github.com/AndreyNegrov/october_infrastructure.git october_infrastructure
 
