@@ -680,3 +680,6 @@ docker-compose run --rm certbot certonly \
     -d $DOMAIN
 
 #ssh root@english-in-easy.com "DOMAIN=english-in-easy.com bash -s" < install.sh
+#ssh root@english-in-easy.com "DOMAIN=english-in-easy.com bash -s" < install_finish.sh
+#ssh root@english-in-easy.com
+#docker exec -it mysql mysql -u root -pb3ede22a26bd6e2ac281fe6d9e2e89de october < /tmp/dump.sql
