@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
 # Удаляем ВСЕ существующие конфиги репозиториев
 RUN rm -rf /etc/apt/sources.list /etc/apt/sources.list.d/*
