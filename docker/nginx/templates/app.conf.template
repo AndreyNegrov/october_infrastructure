@@ -9,4 +9,7 @@ server {
     location / {
          return 301 https://$host$request_uri;
     }
+
+        error_log /var/log/nginx/project_error.log;
+        access_log /var/log/nginx/project_access.log;
 }
