@@ -403,6 +403,160 @@
             "install-path": "./composer"
         },
         {
+            "name": "composer/installers",
+            "version": "v1.12.0",
+            "version_normalized": "1.12.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.6.* || ^2.0",
+                "composer/semver": "^1 || ^3",
+                "phpstan/phpstan": "^0.12.55",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "symfony/phpunit-bridge": "^4.2 || ^5",
+                "symfony/process": "^2.3"
+            },
+            "time": "2021-09-13T08:19:44+00:00",
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Starbug",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "miaoxing",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "pantheon",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "processwire",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "tastyigniter",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "support": {
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.12.0"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "./installers"
+        },
+        {
             "name": "composer/metadata-minifier",
             "version": "1.0.0",
             "version_normalized": "1.0.0.0",
@@ -3789,6 +3943,187 @@
             "install-path": "../nunomaduro/termwind"
         },
         {
+            "name": "october/all",
+            "version": "v3.7.0",
+            "version_normalized": "3.7.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/octoberrain/all.git",
+                "reference": "52fe1ff9b39601ae4207a545535a4bfc83b7bef1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/octoberrain/all/zipball/52fe1ff9b39601ae4207a545535a4bfc83b7bef1",
+                "reference": "52fe1ff9b39601ae4207a545535a4bfc83b7bef1",
+                "shasum": ""
+            },
+            "require": {
+                "october/backend": "3.7.*",
+                "october/cms": "3.7.*",
+                "october/editor": "3.7.*",
+                "october/media": "3.7.*",
+                "october/system": "3.7.*",
+                "october/tailor": "3.7.*"
+            },
+            "time": "2024-10-09T07:54:06+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "All common modules for October CMS",
+            "homepage": "https://octobercms.com",
+            "keywords": [
+                "all",
+                "core",
+                "october",
+                "october cms"
+            ],
+            "support": {
+                "issues": "https://github.com/octoberrain/all/issues",
+                "source": "https://github.com/octoberrain/all/tree/v3.7.0"
+            },
+            "install-path": "../october/all"
+        },
+        {
+            "name": "october/backend",
+            "version": "v3.7.11",
+            "version_normalized": "3.7.11.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://gateway.octobercms.com/composer/dist/october/backend/october-backend-v3.7.11-b0677f.zip",
+                "reference": "be0737ff7c912f4c309d9d406486e29f7ead833a",
+                "shasum": "4977ef98e0222522fb46f8536cf3327ba00eee18"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "time": "2025-02-22T22:46:50+00:00",
+            "type": "october-module",
+            "installation-source": "dist",
+            "authors": [
+                {
+                    "name": "Alexey Bobkov",
+                    "email": "aleksey.bobkov@gmail.com"
+                },
+                {
+                    "name": "Samuel Georges",
+                    "email": "daftspunky@gmail.com"
+                }
+            ],
+            "description": "Backend module for October CMS",
+            "homepage": "https://octobercms.com",
+            "keywords": [
+                "backend",
+                "october",
+                "october cms"
+            ],
+            "install-path": "../../modules/backend"
+        },
+        {
+            "name": "october/cms",
+            "version": "v3.7.11",
+            "version_normalized": "3.7.11.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://gateway.octobercms.com/composer/dist/october/cms/october-cms-v3.7.11-6ac0af.zip",
+                "reference": "2f9ae96fb0c73acd79f5f9d0a1b9bc945e7dcbde",
+                "shasum": "e2f96b185b8e355d9d99a21be86bdf82dbbae194"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "time": "2025-01-29T07:20:29+00:00",
+            "type": "october-module",
+            "installation-source": "dist",
+            "authors": [
+                {
+                    "name": "Alexey Bobkov",
+                    "email": "aleksey.bobkov@gmail.com"
+                },
+                {
+                    "name": "Samuel Georges",
+                    "email": "daftspunky@gmail.com"
+                }
+            ],
+            "description": "CMS module for October CMS",
+            "homepage": "https://octobercms.com",
+            "keywords": [
+                "cms",
+                "october",
+                "october cms"
+            ],
+            "install-path": "../../modules/cms"
+        },
+        {
+            "name": "october/editor",
+            "version": "v3.7.11",
+            "version_normalized": "3.7.11.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://gateway.octobercms.com/composer/dist/october/editor/october-editor-v3.7.11-31012d.zip",
+                "reference": "2b4664ebec60c6f00c866673bb0c3a5f38517143",
+                "shasum": "3ec5a27f4d63a102f40d71c1f50ae6fc1db2a439"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "time": "2024-10-13T22:20:09+00:00",
+            "type": "october-module",
+            "installation-source": "dist",
+            "authors": [
+                {
+                    "name": "Alexey Bobkov",
+                    "email": "aleksey.bobkov@gmail.com"
+                },
+                {
+                    "name": "Samuel Georges",
+                    "email": "daftspunky@gmail.com"
+                }
+            ],
+            "description": "Editor module for October CMS",
+            "homepage": "https://octobercms.com",
+            "keywords": [
+                "editor",
+                "october",
+                "october cms"
+            ],
+            "install-path": "../../modules/editor"
+        },
+        {
+            "name": "october/media",
+            "version": "v3.7.11",
+            "version_normalized": "3.7.11.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://gateway.octobercms.com/composer/dist/october/media/october-media-v3.7.11-a843b3.zip",
+                "reference": "b5d281904f7e475776b0864a480cefbe5d912291",
+                "shasum": "d65e6abf7653756fe70ba6e476a411002e2097bc"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "time": "2025-01-21T19:54:36+00:00",
+            "type": "october-module",
+            "installation-source": "dist",
+            "authors": [
+                {
+                    "name": "Alexey Bobkov",
+                    "email": "aleksey.bobkov@gmail.com"
+                },
+                {
+                    "name": "Samuel Georges",
+                    "email": "daftspunky@gmail.com"
+                }
+            ],
+            "description": "Media module for October CMS",
+            "homepage": "https://octobercms.com",
+            "keywords": [
+                "media",
+                "october",
+                "october cms"
+            ],
+            "install-path": "../../modules/media"
+        },
+        {
             "name": "october/rain",
             "version": "v3.7.11",
             "version_normalized": "3.7.11.0",
@@ -3873,6 +4208,76 @@
                 "source": "https://github.com/octobercms/library/tree/v3.7.11"
             },
             "install-path": "../october/rain"
+        },
+        {
+            "name": "october/system",
+            "version": "v3.7.11",
+            "version_normalized": "3.7.11.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://gateway.octobercms.com/composer/dist/october/system/october-system-v3.7.11-af6cb6.zip",
+                "reference": "ca72dabfb3eecf27f65ead890065c0f2a3822f28",
+                "shasum": "66e42c611cca733f3d655c640d1c5134fc4c3879"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "time": "2025-02-22T22:58:18+00:00",
+            "type": "october-module",
+            "installation-source": "dist",
+            "authors": [
+                {
+                    "name": "Alexey Bobkov",
+                    "email": "aleksey.bobkov@gmail.com"
+                },
+                {
+                    "name": "Samuel Georges",
+                    "email": "daftspunky@gmail.com"
+                }
+            ],
+            "description": "System module for October CMS",
+            "homepage": "https://octobercms.com",
+            "keywords": [
+                "october",
+                "october cms",
+                "system"
+            ],
+            "install-path": "../../modules/system"
+        },
+        {
+            "name": "october/tailor",
+            "version": "v3.7.11",
+            "version_normalized": "3.7.11.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://gateway.octobercms.com/composer/dist/october/tailor/october-tailor-v3.7.11-9ec2da.zip",
+                "reference": "acb936575609c9efda670f5285aaae4fbea44c27",
+                "shasum": "c79a4011dfb254a7da2189f43ba80351fc9229a9"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "time": "2025-02-26T20:33:41+00:00",
+            "type": "october-module",
+            "installation-source": "dist",
+            "authors": [
+                {
+                    "name": "Alexey Bobkov",
+                    "email": "aleksey.bobkov@gmail.com"
+                },
+                {
+                    "name": "Samuel Georges",
+                    "email": "daftspunky@gmail.com"
+                }
+            ],
+            "description": "Tailor module for October CMS",
+            "homepage": "https://octobercms.com",
+            "keywords": [
+                "october",
+                "october cms",
+                "tailor"
+            ],
+            "install-path": "../../modules/tailor"
         },
         {
             "name": "phar-io/manifest",
