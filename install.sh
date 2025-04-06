@@ -679,12 +679,4 @@ docker-compose run --rm certbot certonly \
     --email admin@$DOMAIN --agree-tos --no-eff-email \
     -d $DOMAIN
 
-sed "s/{{DOMAIN}}/$DOMAIN/g" docker/nginx/templates/app.conf.template2 > docker/nginx/config/default.conf
-
-docker-compose down
-docker-compose up -d
-
-mysql -h 127.0.0.1 -P3306 -u user -pb3ede22a26bd6e2ac281fe6d9e2e89de october < dump.sql
-chmod -R 777 *
-
 #ssh root@english-in-easy.com "DOMAIN=english-in-easy.com bash -s" < install.sh
