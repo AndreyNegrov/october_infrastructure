@@ -35,6 +35,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install iproute2
+RUN apt-get update && apt-get install iproute2 -y
 
 CMD php-fpm
