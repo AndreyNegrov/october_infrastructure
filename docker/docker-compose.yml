@@ -8,9 +8,18 @@ services:
       - ./../:/app
       - ./nginx/config/:/etc/nginx/conf.d
       - ./nginx/logs/:/var/log/nginx
+      - ./nginx/certbot/conf:/etc/letsencrypt
+      - ./nginx/certbot/www:/var/www/certbot
     networks:
       - october-network
     restart: always
+
+  certbot:
+      image: certbot/certbot
+      volumes:
+          - ./nginx/certbot/conf:/etc/letsencrypt
+          - ./nginx/certbot/www:/var/www/certbot
+      restart: always
 
   php:
     build:
@@ -44,4 +53,5 @@ networks:
   october-network:
     external: true
     driver: bridge
-
+    driver_opts:
+      com.docker.network.driver.mtu: 1450
