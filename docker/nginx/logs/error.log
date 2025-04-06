@@ -1279,3 +1279,105 @@
 2025/04/01 18:47:50 [notice] 1#1: signal 17 (SIGCHLD) received from 98
 2025/04/01 18:47:50 [notice] 1#1: worker process 98 exited with code 0
 2025/04/01 18:47:50 [notice] 1#1: exit
+2025/04/01 19:40:48 [notice] 1#1: using the "epoll" event method
+2025/04/01 19:40:48 [notice] 1#1: nginx/1.27.4
+2025/04/01 19:40:48 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/01 19:40:48 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+2025/04/01 19:40:48 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/01 19:40:48 [notice] 1#1: start worker processes
+2025/04/01 19:40:48 [notice] 1#1: start worker process 28
+2025/04/01 19:40:48 [notice] 1#1: start worker process 29
+2025/04/01 19:40:48 [notice] 1#1: start worker process 30
+2025/04/01 19:40:48 [notice] 1#1: start worker process 31
+2025/04/01 19:40:48 [notice] 1#1: start worker process 32
+2025/04/01 19:40:48 [notice] 1#1: start worker process 33
+2025/04/01 19:40:48 [notice] 1#1: start worker process 34
+2025/04/01 19:40:48 [notice] 1#1: start worker process 35
+2025/04/01 19:40:48 [notice] 1#1: start worker process 36
+2025/04/01 19:40:48 [notice] 1#1: start worker process 37
+2025/04/01 19:40:48 [notice] 1#1: start worker process 38
+2025/04/01 19:40:48 [notice] 1#1: start worker process 39
+2025/04/01 19:40:48 [notice] 1#1: start worker process 40
+2025/04/01 19:40:48 [notice] 1#1: start worker process 41
+2025/04/01 19:40:48 [notice] 1#1: start worker process 42
+2025/04/01 19:40:48 [notice] 1#1: start worker process 43
+2025/04/01 19:40:48 [notice] 1#1: start worker process 44
+2025/04/01 19:40:48 [notice] 1#1: start worker process 45
+2025/04/01 19:40:48 [notice] 1#1: start worker process 46
+2025/04/01 19:40:48 [notice] 1#1: start worker process 47
+2025/04/01 19:40:48 [notice] 1#1: start worker process 48
+2025/04/01 19:40:48 [notice] 1#1: start worker process 49
+2025/04/01 19:40:48 [notice] 1#1: start worker process 50
+2025/04/01 19:40:48 [notice] 1#1: start worker process 51
+2025/04/01 19:40:48 [notice] 1#1: start worker process 52
+2025/04/01 19:40:48 [notice] 1#1: start worker process 53
+2025/04/01 19:40:48 [notice] 1#1: start worker process 54
+2025/04/01 19:40:48 [notice] 1#1: start worker process 55
+2025/04/06 17:53:32 [notice] 1#1: using the "epoll" event method
+2025/04/06 17:53:32 [notice] 1#1: nginx/1.27.4
+2025/04/06 17:53:32 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/06 17:53:32 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+2025/04/06 17:53:32 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/06 17:53:32 [notice] 1#1: start worker processes
+2025/04/06 17:53:32 [notice] 1#1: start worker process 28
+2025/04/06 17:53:32 [notice] 1#1: start worker process 29
+2025/04/06 17:53:32 [notice] 1#1: start worker process 30
+2025/04/06 17:53:32 [notice] 1#1: start worker process 31
+2025/04/06 17:53:32 [notice] 1#1: start worker process 32
+2025/04/06 17:53:32 [notice] 1#1: start worker process 33
+2025/04/06 17:53:32 [notice] 1#1: start worker process 34
+2025/04/06 17:53:32 [notice] 1#1: start worker process 35
+2025/04/06 17:53:32 [notice] 1#1: start worker process 36
+2025/04/06 17:53:32 [notice] 1#1: start worker process 37
+2025/04/06 17:53:32 [notice] 1#1: start worker process 38
+2025/04/06 17:53:32 [notice] 1#1: start worker process 39
+2025/04/06 17:53:32 [notice] 1#1: start worker process 40
+2025/04/06 17:53:32 [notice] 1#1: start worker process 41
+2025/04/06 17:53:32 [notice] 1#1: start worker process 42
+2025/04/06 17:53:32 [notice] 1#1: start worker process 43
+2025/04/06 17:53:32 [notice] 1#1: start worker process 44
+2025/04/06 17:53:32 [notice] 1#1: start worker process 45
+2025/04/06 17:53:32 [notice] 1#1: start worker process 46
+2025/04/06 17:53:32 [notice] 1#1: start worker process 47
+2025/04/06 17:53:32 [notice] 1#1: start worker process 48
+2025/04/06 17:53:32 [notice] 1#1: start worker process 49
+2025/04/06 17:53:32 [notice] 1#1: start worker process 50
+2025/04/06 17:53:32 [notice] 1#1: start worker process 51
+2025/04/06 17:53:32 [notice] 1#1: start worker process 52
+2025/04/06 17:53:32 [notice] 1#1: start worker process 53
+2025/04/06 17:53:32 [notice] 1#1: start worker process 54
+2025/04/06 17:53:32 [notice] 1#1: start worker process 55
+2025/04/06 19:42:26 [notice] 1#1: using the "epoll" event method
+2025/04/06 19:42:26 [notice] 1#1: nginx/1.27.4
+2025/04/06 19:42:26 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/04/06 19:42:26 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+2025/04/06 19:42:26 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/06 19:42:26 [notice] 1#1: start worker processes
+2025/04/06 19:42:26 [notice] 1#1: start worker process 28
+2025/04/06 19:42:26 [notice] 1#1: start worker process 29
+2025/04/06 19:42:26 [notice] 1#1: start worker process 30
+2025/04/06 19:42:26 [notice] 1#1: start worker process 31
+2025/04/06 19:42:26 [notice] 1#1: start worker process 32
+2025/04/06 19:42:26 [notice] 1#1: start worker process 33
+2025/04/06 19:42:26 [notice] 1#1: start worker process 34
+2025/04/06 19:42:26 [notice] 1#1: start worker process 35
+2025/04/06 19:42:26 [notice] 1#1: start worker process 36
+2025/04/06 19:42:26 [notice] 1#1: start worker process 37
+2025/04/06 19:42:26 [notice] 1#1: start worker process 38
+2025/04/06 19:42:26 [notice] 1#1: start worker process 39
+2025/04/06 19:42:26 [notice] 1#1: start worker process 40
+2025/04/06 19:42:26 [notice] 1#1: start worker process 41
+2025/04/06 19:42:26 [notice] 1#1: start worker process 42
+2025/04/06 19:42:26 [notice] 1#1: start worker process 43
+2025/04/06 19:42:26 [notice] 1#1: start worker process 44
+2025/04/06 19:42:26 [notice] 1#1: start worker process 45
+2025/04/06 19:42:26 [notice] 1#1: start worker process 46
+2025/04/06 19:42:26 [notice] 1#1: start worker process 47
+2025/04/06 19:42:26 [notice] 1#1: start worker process 48
+2025/04/06 19:42:26 [notice] 1#1: start worker process 49
+2025/04/06 19:42:26 [notice] 1#1: start worker process 50
+2025/04/06 19:42:26 [notice] 1#1: start worker process 51
+2025/04/06 19:42:26 [notice] 1#1: start worker process 52
+2025/04/06 19:42:26 [notice] 1#1: start worker process 53
+2025/04/06 19:42:26 [notice] 1#1: start worker process 54
+2025/04/06 19:42:26 [notice] 1#1: start worker process 55
