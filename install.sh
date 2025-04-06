@@ -660,21 +660,21 @@
 #apt update && apt install git -y
 #
 
-#cd october_infrastructure
+cd october_infrastructure
 #docker-compose down
 #cd ../
 #
 #rm -rf october_infrastructure
 
-git clone https://github.com/AndreyNegrov/october_infrastructure.git october_infrastructure
-
-cd october_infrastructure
+#git clone https://github.com/AndreyNegrov/october_infrastructure.git october_infrastructure
+#
+#cd october_infrastructure
 #
 #docker network create october-network
 #
-docker-compose up -d
+#docker-compose up -d
 
-docker-compose exec -it php php artisan october:install
+docker-compose exec -it php php artisan october:install << EOF
 ru
 http://80.78.242.207
 /backend
@@ -686,6 +686,7 @@ root
 b3ede22a26bd6e2ac281fe6d9e2e89de
 yes
 6OZ65-MYP3F-TF6SG-QL61E
+EOF
 
 docker-compose exec -it php php artisan october:migrate
 

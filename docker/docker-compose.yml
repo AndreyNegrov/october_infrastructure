@@ -1,56 +1,48 @@
 services:
-    nginx:
-        image: nginx:latest
-        ports:
-            - ${NGINX_HOST_PORT}:80
-            - ${NGINX_HOST_PORT_SSL}:443
-        volumes:
-            - ./../:/app
-            - ./nginx/config/:/etc/nginx/conf.d
-            - ./nginx/logs/:/var/log/nginx
-        networks:
-            - october-network
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
-        restart: always
+  nginx:
+    image: nginx:latest
+    ports:
+      - ${NGINX_HOST_PORT}:80
+      - ${NGINX_HOST_PORT_SSL}:443
+    volumes:
+      - ./../:/app
+      - ./nginx/config/:/etc/nginx/conf.d
+      - ./nginx/logs/:/var/log/nginx
+    networks:
+      - october-network
+    restart: always
 
-    php:
-        build:
-            context: './'
-            dockerfile: './php/Dockerfile'
-        network_mode: host
-        volumes:
-            - "../:/app"
-        restart: always
+  php:
+    build:
+      context: './'
+      dockerfile: './php/Dockerfile'
+    networks:
+      - october-network
+    volumes:
+      - "../:/app"
+    restart: always
 
-    mysql:
-        image: mysql:latest
-        volumes:
-            - october-mysql-volume:/var/lib/mysql
-        networks:
-            - october-network
-        environment:
-            MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
-            MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
-            MYSQL_USER: "${MYSQL_USER}"
-            MYSQL_DATABASE: "${MYSQL_DATABASE}"
-        restart: always
-        ports:
-            - ${MYSQL_HOST_PORT}:3306
+  mysql:
+    image: mysql:latest
+    volumes:
+      - october-mysql-volume:/var/lib/mysql
+    networks:
+      - october-network
+    environment:
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+    restart: always
+    ports:
+      - ${MYSQL_HOST_PORT}:3306
 
 volumes:
-    october-mysql-volume:
+  october-mysql-volume:
 
 networks:
-    october-network:
-        enable_ipv6: false
-        external: true
-        driver: bridge
-        driver_opts:
-            com.docker.network.driver.mtu: 1280
-        ipam:
-            config:
-                - subnet: 172.28.0.0/16
-                  gateway: 172.28.0.1
-                  aux_addresses:
-                      dns: 8.8.8.8
+  october-network:
+    external: true
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: 1450
