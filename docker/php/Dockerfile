@@ -1,12 +1,5 @@
 FROM php:8.3-fpm
 
-# Удаляем ВСЕ существующие конфиги репозиториев
-RUN rm -rf /etc/apt/sources.list /etc/apt/sources.list.d/*
-
-# Создаём новый sources.list только с нужными зеркалами
-RUN echo "deb http://mirror.yandex.ru/debian bookworm main" > /etc/apt/sources.list && \
-    echo "deb http://mirror.yandex.ru/debian-security bookworm-security main" >> /etc/apt/sources.list
-
 RUN apt-get update
 
 RUN apt-get install -y --no-install-recommends software-properties-common
