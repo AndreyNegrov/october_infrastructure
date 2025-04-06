@@ -1,27 +1,28 @@
 FROM php:8.3-fpm
 
-RUN sed -i 's|deb.debian.org|ftp.debian.org|g' /etc/apt/sources.list
+RUN apt-get update
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        software-properties-common \
-    && add-apt-repository universe \
-    && apt-get update && \
-    apt-get install -y \
-        curl \
-        libpng-dev \
-        libonig-dev \
-        libxml2-dev \
-        zip \
-        unzip \
-        libcurl4-openssl-dev \
-        libssl-dev \
-        libzip-dev \
-        mc \
-        rsync \
-        git \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y --no-install-recommends software-properties-common
 
+RUN add-apt-repository universe
+
+RUN apt-get update
+
+RUN apt-get install -y curl
+RUN apt-get install -y libpng-dev
+RUN apt-get install -y libonig-dev
+RUN apt-get install -y libxml2-dev
+RUN apt-get install -y zip
+RUN apt-get install -y unzip
+RUN apt-get install -y libcurl4-openssl-dev
+RUN apt-get install -y libssl-dev
+RUN apt-get install -y libzip-dev
+RUN apt-get install -y mc
+RUN apt-get install -y rsync
+RUN apt-get install -y git
+
+# 16. Очистка кеша для уменьшения размера образа
+RUN rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install exif
