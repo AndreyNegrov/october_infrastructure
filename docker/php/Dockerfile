@@ -37,6 +37,4 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install iproute2 -y
 
-RUN cd /app && composer create-project october/october myoctober
-
 CMD php-fpm
