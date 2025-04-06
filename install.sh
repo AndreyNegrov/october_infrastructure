@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -z "$DOMAIN" ]; then
+    echo "Ошибка: домен не может быть пустым!"
+    exit 1
+fi
+
 SCRIPT_COMMIT_SHA="4c94a56999e10efcf48c5b8e3f6afea464f9108e"
 
 VERSION="${VERSION#v}"
@@ -665,15 +670,10 @@ cd october_infrastructure
 
 docker network create october-network
 
-read -p "Введите ваш домен (например, example.com): " DOMAIN
-if [ -z "$DOMAIN" ]; then
-    echo "Ошибка: домен не может быть пустым!"
-    exit 1
-fi
-
 sed -i "s|APP_URL=http://localhost|APP_URL=https://$DOMAIN|g" .env
 sed "s/{{DOMAIN}}/$DOMAIN/g" docker/nginx/templates/app.conf.template > docker/nginx/config/default.conf
 docker-compose up -d nginx
+
 docker-compose run --rm certbot certonly \
     --webroot --webroot-path=/var/www/certbot \
     --email admin@$DOMAIN --agree-tos --no-eff-email \
@@ -684,4 +684,7 @@ sed "s/{{DOMAIN}}/$DOMAIN/g" docker/nginx/templates/app.conf.template2 > docker/
 docker-compose down
 docker-compose up -d
 
-mysql -h localhost -P3306 -u user -pb3ede22a26bd6e2ac281fe6d9e2e89de october < dump.sql
+mysql -h 127.0.0.1 -P3306 -u user -pb3ede22a26bd6e2ac281fe6d9e2e89de october < dump.sql
+chmod -R 777 *
+
+#ssh root@english-in-easy.com "DOMAIN=english-in-easy.com bash -s" < install.sh
