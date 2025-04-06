@@ -1,6 +1,12 @@
 FROM php:8.3-fpm
 
+RUN sed -i 's|deb.debian.org|ftp.debian.org|g' /etc/apt/sources.list
+
 RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        software-properties-common \
+    && add-apt-repository universe \
+    && apt-get update && \
     apt-get install -y \
         curl \
         libpng-dev \
@@ -13,8 +19,8 @@ RUN apt-get update && \
         libzip-dev \
         mc \
         rsync \
-        git && \
-    rm -rf /var/lib/apt/lists/*
+        git \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install mbstring
