@@ -17,4 +17,5 @@ chmod -R 777 *
 #ssh root@english-in-easy.com "DOMAIN=english-in-easy.com bash -s" < install.sh
 #ssh root@english-in-easy.com "DOMAIN=english-in-easy.com bash -s" < install_finish.sh
 #ssh root@english-in-easy.com
+#cd october_infrastructure
 #mysql -h 127.0.0.1 -u root -pb3ede22a26bd6e2ac281fe6d9e2e89de october < dump.sql
