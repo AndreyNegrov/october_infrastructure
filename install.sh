@@ -657,7 +657,6 @@ docker-compose --version
 if [ -f /lib/systemd/system/docker.service ]; then
     sed -i 's|ExecStart=/usr/bin/dockerd -H fd://|ExecStart=/usr/bin/dockerd --mtu 1280 -H fd://|g' /lib/systemd/system/docker.service
     systemctl daemon-reload && systemctl restart docker.service
-    docker compose down && docker-compose up -d
 else
     echo "Файл /lib/systemd/system/docker.service не найден. Пропускаем замену."
 fi

@@ -34,11 +34,7 @@ services:
   mysql:
     image: mysql:latest
     volumes:
-      - ./mysql/initdb/dump.sql:/tmp/dump.sql
       - october-mysql-volume:/var/lib/mysql
-    depends_on:
-        mysql:
-            condition: service_healthy
     networks:
       - october-network
     environment:
@@ -49,10 +45,6 @@ services:
     restart: always
     ports:
       - ${MYSQL_HOST_PORT}:3306
-    command:
-        - sh
-        - -c
-        - "sleep 5 && mysql -h 127.0.0.1 -u root -ppb3ede22a26bd6e2ac281fe6d9e2e89de < /tmp/dump.sql"
 
 volumes:
   october-mysql-volume:
